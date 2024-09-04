@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './index.css';
 import { useDispatch } from 'react-redux';
 import { setEnrolledCourse } from '../../store/courses';
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ModalBox = ({ isOpen, onClose }) => {
     const [email, setEmail] = useState('');
@@ -18,7 +18,7 @@ const ModalBox = ({ isOpen, onClose }) => {
         dispatch(setEnrolledCourse(email))
         setEmail('');
         onClose();
-        window.location.href = '/dashboard';
+        navigate('/dashboard');
     };
 
     if (!isOpen) return null;
